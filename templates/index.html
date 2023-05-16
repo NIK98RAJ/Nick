@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Interface</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #chat {
+            height: 400px;
+            border: 1px solid black;
+            padding: 10px;
+            overflow-y: scroll;
+        }
+        #user-input {
+            width: 100%;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat"></div>
+    <input id="user-input" type="text" placeholder="Type your message here...">
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        const chatDiv = document.getElementById('chat');
+        const userInput = document.getElementById('user-input');
+
+        function sendMessage() {
+            const message = userInput.value;
+            userInput.value = '';
+
+            // Append user's message to chat
+            chatDiv.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
+
+            // Send the message to the server
+            $.post('/send_message', {message: message}, function(data) {
+                // Append system's message to chat
+                chatDiv.innerHTML += `<p><strong>System:</strong> ${data}</p>`;
+            });
+        }
+    </script>
+</body>
+</html>
