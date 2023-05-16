@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Webpage</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <div id="chatbot">
+        <!-- Your chatbot will appear here -->
+    </div>
+
+    <script type="module">
+        import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed@latest/dist/web.js"
+        Chatbot.init({
+            chatflowid: "05f3c285-40ad-4f19-bdf5-7079b7bb1e55",
+            apiHost: "http://localhost:3000",
+        })
+    </script>
+</body>
+</html>
