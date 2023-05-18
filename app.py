@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 
-API_URL = "https://frontend-production-2a34.up.railway.app/api/v1/prediction/39c3cac1-3df6-4b33-8788-500f6b670d52"
+API_URL = "https://frontend-production-2a34.up.railway.app/api/v1/prediction/15569589-8b42-461e-89a3-f7cd3e055251"
 
 @app.route('/')
 def home():
